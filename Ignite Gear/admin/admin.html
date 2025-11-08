@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Panel | Ignite Gear</title>
+
+
+  <link rel="stylesheet" href="/css/admin.css" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+  <script src="../js/admin.js" defer></script>
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="brand">Ignite <span>Gear</span> — Admin</div>
+    <div class="header-actions">
+      <input id="searchInput" type="search" placeholder="Search products..." />
+      <select id="filterCategory">
+        <option value="">All categories</option>
+      </select>
+      <button id="btnExport" class="btn small">Export JSON</button>
+      <label class="btn small import-label">
+        Import JSON
+        <input id="importFile" type="file" accept=".csv, .xlsx, .json" hidden />
+
+      </label>
+      <button id="btnAdd" class="btn primary">+ Add Product</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="panel panel-left">
+      <div class="panel-head">
+        <h3>Products</h3>
+        <div>
+          <button id="btnBulkDiscount" class="btn">Apply Discount to Selected</button>
+          <button id="btnDeleteDiscount" class="btn danger">Del Discount to selected</button>
+          <button id="btnBulkDelete" class="btn danger">Delete Selected</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="productsTable" class="products-table">
+          <thead>
+            <tr>
+              <th><input id="selectAll" type="checkbox" /></th>
+              <th data-sort="name">Name <i class="fas fa-sort"></i></th>
+              <th data-sort="category">Category <i class="fas fa-sort"></i></th>
+              <th data-sort="price">Price <i class="fas fa-sort"></i></th>
+              <th>Qty</th>
+              <th>Discount</th>
+              <th>start date</th>
+              <th>end date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsBody"></tbody>
+        </table>
+      </div>
+       <div class="panel-head">
+    <h3>Orders</h3>
+  </div>
+  <div class="table-wrap">
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User</th>
+          <th>User Email</th>
+          <th>User Phone</th>
+          <th>User Address</th>
+          <th>order subtotal</th>
+          <th>order tax</th>
+          <th>order delivery</th>
+          <th>order total</th>
+          <th>Products</th>
+          <th>Order Date</th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+  </div>
+    </section>
+
+
+    <aside class="panel panel-right">
+      <div class="panel-head">
+        <h3>Quick Controls</h3>
+      </div>
+
+      <div class="controls">
+        <div class="control-row">
+          <label>Apply discount to category</label>
+          <select id="bulkCategorySelect">
+            <option value="">Select category</option>
+          </select>
+        
+          <button id="applyCategoryDiscount" class="btn primary">Apply</button>
+        </div>
+
+        <hr />
+
+        <div class="control-row">
+          <label>Create sample data</label>
+          <button id="btnSample" class="btn">Load Sample Products</button>
+            <button id="btnOrders" class="btn hidden">View Orders</button>
+        </div>
+
+        <hr />
+
+    
+      </div>
+
+      <div class="panel-head" style="margin-top:18px;">
+        <h4>Preview</h4>
+      </div>
+      <div id="previewArea" class="preview-area">
+        <p class="muted">Select a product to preview it here (click View)</p>
+      </div>
+    </aside>
+  </main>
+
+
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-box">
+      <button class="close" id="modalClose">&times;</button>
+
+      <form id="productForm" class="form" enctype="multipart/form-data">
+  <h2 id="formTitle">Add Product</h2>
+
+  <label>Product Name</label>
+  <input id="pName" name="name" type="text" required />
+
+  <label>Category</label>
+  <input id="pCategory" name="category" type="text" placeholder="e.g. Sportswear" required />
+
+  <label>Image 1</label>
+  <input id="pImage1" name="image1" type="file" accept="image/*" />
+
+  <label>Image 2</label>
+  <input id="pImage2" name="image2" type="file" accept="image/*" />
+
+  <label>Image 3</label>
+  <input id="pImage3" name="image3" type="file" accept="image/*" />
+
+  <label>Price (USD)</label>
+  <input id="pPrice" name="price" type="number" min="0" step="0.01" required />
+
+  <label>Quantity</label>
+  <input id="pQty" name="qty" type="number" min="0" step="1" value="1" required />
+
+  <label>Description</label>
+  <textarea id="pDesc" name="description" rows="3"></textarea>
+
+  <div class="form-row">
+    <label><input id="pActive" name="active" type="checkbox" value="1" checked /> Active</label>
+    <label><input id="pFeatured" name="featured" type="checkbox" value="1" /> Featured</label>
+  </div>
+
+  <div class="form-row">
+    <label>Discount %</label>
+    <input id="pDiscount" name="discount" type="number" min="0" max="99" placeholder="0" />
+  </div>
+
+  <div class="form-row">
+    <label>Discount start</label>
+    <input id="pDiscountStart" name="discountStart" type="datetime-local" />
+    <label>Discount end</label>
+    <input id="pDiscountEnd" name="discountEnd" type="datetime-local" />
+  </div>
+
+  <input id="pId" name="id" type="hidden" />
+  <div class="form-actions">
+    <button type="submit" class="btn primary" id="saveBtn">Save Product</button>
+    <button type="button" class="btn" id="cancelBtn">Cancel</button>
+  </div>
+</form>
+
+    </div>
+  </div>
+
+
+  <div id="discountModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-box small">
+      <button class="close" id="discountClose">&times;</button>
+      <h3>Apply Discount to Selected</h3>
+      <label>Discount Percent</label>
+      <input id="bulkSelectedPercent" type="number" min="1" max="99" />
+      <label>End Date (optional)</label>
+      <input id="bulkSelectedEnd" type="datetime-local" />
+      <div class="form-actions">
+        <button id="applyBulkSelected" class="btn primary">Apply</button>
+        <button id="cancelBulk" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+ 
+<div id="categoryDiscountModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-box small">
+    <button class="close" id="categoryDiscountClose">&times;</button>
+    <h3>Apply Discount to Category</h3>
+
+    <label>Select Category</label>
+    <select id="categorySelectForDiscount">
+      <option value="">Select category</option>
+    </select>
+
+    <label>Discount Percent</label>
+    <input id="categoryDiscountPercent" type="number" min="1" max="99" placeholder="% off (e.g. 10)" />
+
+    <label>End Date (optional)</label>
+    <input id="categoryDiscountEnd" type="datetime-local" />
+
+    <div class="form-actions">
+      <button id="applyCategoryDiscountModal" class="btn primary">Apply</button>
+      <button id="cancelCategoryDiscount" class="btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <div id="toast" class="toast hidden"></div>
+
+</body>
+
+</html>

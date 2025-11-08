@@ -1,0 +1,137 @@
+
+.breaker-wavy {
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  padding: 30px 0;
+  position: relative;
+}
+
+
+.wave-line {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollInfinite 18s linear infinite;
+}
+
+
+.wave-text {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #ff9100;
+}
+
+.wave-text span {
+  display: inline-block;
+  animation: letterWave 2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+
+@keyframes scrollInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+@keyframes letterWave {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-10px) rotate(2deg); }
+  50%  { transform: translateY(0) rotate(0deg); }
+  75%  { transform: translateY(10px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+
+@media (max-width: 1200px) {
+  .breaker-wavy {
+    padding: 25px 0;
+  }
+
+  .wave-text {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .wave-text span {
+    animation-delay: calc(var(--i) * 0.08s);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .breaker-wavy {
+    padding: 20px 0;
+  }
+
+  .wave-text {
+    font-size: 1.6rem;
+    letter-spacing: 2.5px;
+  }
+
+  @keyframes letterWave {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-8px); }
+    75%  { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .breaker-wavy {
+    padding: 18px 0;
+  }
+
+  .wave-text {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  @keyframes letterWave {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-6px); }
+    75%  { transform: translateY(6px); }
+    100% { transform: translateY(0); }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .breaker-wavy {
+    padding: 15px 0;
+  }
+
+  .wave-text {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  @keyframes letterWave {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-5px); }
+    75%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
+}
+
+
+@media (max-width: 360px) {
+  .breaker-wavy {
+    padding: 12px 0;
+  }
+
+  .wave-text {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+
+  @keyframes letterWave {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-4px); }
+    75%  { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+  }
+}

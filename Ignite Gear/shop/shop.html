@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignite Gear | Shop</title>
+
+ 
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/shop.css" />
+  <link rel="stylesheet" href="../css/productcard.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/auth.css" />
+ <script src="https://kit.fontawesome.com/a2e0b5b5e0.js" crossorigin="anonymous"></script>
+ <script type="module" src="/js/firebase.js"></script>
+  <script src="/js/auth.js" defer></script>
+  <script src="/js/header.js" defer></script>
+ 
+  <script src="../js/include.js" defer></script>
+  <script src="../js/productlist.js" defer></script>
+  <script src="../js/shop.js" defer></script>
+</head>
+<body>
+
+  <header data-include="../components/header/index.html"></header>
+
+
+  <main class="shop-container">
+    <aside class="shop-filters">
+      <h3>Filters</h3>
+     <div class="filter-section">
+  <h4>Category</h4>
+  <input type="checkbox" id="sportswear">
+  <label for="sportswear">Sportswear</label>
+
+  <input type="checkbox" id="footwear">
+  <label for="footwear">Footwear</label>
+
+  <input type="checkbox" id="accessories">
+  <label for="accessories">Accessories</label>
+</div>
+
+      <div class="filter-section">
+        <h4>Price</h4>
+        <input type="range" id="price-range" min="0" max="200" value="200">
+        <span id="price-value">$200</span>
+      </div>
+      <div class="filter-section">
+        <h4>Age</h4>
+        <label><input type="checkbox" class="filter-age" value="Kids"> Kids</label>
+        <label><input type="checkbox" class="filter-age" value="Adult"> Adult</label>
+      </div>
+      <div class="filter-section">
+        <h4>Size</h4>
+        <label><input type="checkbox" class="filter-size" value="S"> S</label>
+        <label><input type="checkbox" class="filter-size" value="M"> M</label>
+        <label><input type="checkbox" class="filter-size" value="L"> L</label>
+      </div>
+    </aside>
+
+    <section class="shop-products-section">
+      <div class="shop-search">
+        <input type="text" id="search-input" placeholder="Search products...">
+      </div>
+      <div id="shop-products" class="product-grid"></div>
+    </section>
+  </main>
+
+  
+  <footer data-include="../components/footer/index.html"></footer>
+</body>
+</html>

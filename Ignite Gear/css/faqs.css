@@ -1,0 +1,273 @@
+
+.faq-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 60px;
+  background: transparent;
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+
+.faq-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.faq-left h2 {
+  font-size: 2rem;
+  color: #cf6808;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  color: #cf6808;
+  font-size: 1.4rem;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+.faq-answer p {
+  margin-top: 8px;
+  color: #cfcfcf;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+
+.faq-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bouncing-ball {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ff9b38, #cf6808);
+  border-radius: 50%;
+  animation: bounce 2s ease-in-out infinite, glowPulse 1.5s alternate infinite;
+  box-shadow: 0 0 25px rgba(207, 104, 8, 0.6);
+  position: relative;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-120px);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(207, 104, 8, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(255, 155, 56, 0.8);
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .faq-section {
+    padding: 80px 40px;
+    gap: 50px;
+  }
+
+  .faq-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
+
+  .bouncing-ball {
+    width: 70px;
+    height: 70px;
+    animation: bounce 2.2s ease-in-out infinite, glowPulse 1.5s alternate infinite;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .faq-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 70px 30px;
+    gap: 40px;
+  }
+
+  .faq-left {
+    max-width: 100%;
+  }
+
+  .faq-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .faq-question {
+    font-size: 0.95rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.85rem;
+  }
+
+  .faq-right {
+    margin-top: 30px;
+  }
+
+  .bouncing-ball {
+    width: 60px;
+    height: 60px;
+    animation: bounce 2.4s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-90px); }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .faq-section {
+    padding: 60px 20px;
+    gap: 30px;
+  }
+
+  .faq-left h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .faq-question {
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
+
+  .faq-answer p {
+    font-size: 0.8rem;
+  }
+
+  .bouncing-ball {
+    width: 50px;
+    height: 50px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-70px); }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 50px 15px;
+    gap: 25px;
+  }
+
+  .faq-left h2 {
+    font-size: 1.2rem;
+  }
+
+  .faq-question {
+    font-size: 0.85rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.75rem;
+  }
+
+  .bouncing-ball {
+    width: 40px;
+    height: 40px;
+    animation: bounce 2.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-55px); }
+  }
+}
+
+/* Smallest screens (≤360px) */
+@media (max-width: 360px) {
+  .faq-section {
+    padding: 40px 10px;
+    gap: 20px;
+  }
+
+  .faq-left h2 {
+    font-size: 1rem;
+  }
+
+  .faq-question {
+    font-size: 0.8rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.7rem;
+  }
+
+  .bouncing-ball {
+    width: 35px;
+    height: 35px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-45px); }
+  }
+}

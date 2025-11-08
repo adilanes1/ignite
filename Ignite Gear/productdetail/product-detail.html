@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail | Ignite Gear</title>
+
+  
+  <link rel="stylesheet" href="/css/product-detail.css">
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/productcard.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <script src="https://kit.fontawesome.com/a2e0b5b5e0.js" crossorigin="anonymous"></script>
+ 
+</head>
+<body>
+    <header></header>
+  <div class="product-detail-container">
+   
+    <div class="image-slider" id="image-slider"></div>
+
+    <div class="product-details" id="product-details"></div>
+
+ 
+    <div class="right-section">
+      <div class="delivery-time" id="delivery-time"></div>
+
+      <div class="review-form">
+        <h3>Add a Review</h3>
+        <div class="stars" id="star-rating">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <textarea id="review-text" placeholder="Write your review..."></textarea>
+        <button id="submit-review">Submit</button>
+      </div>
+
+      <div class="reviews-list" id="reviews-list">
+        <h3>Reviews</h3>
+      </div>
+    </div>
+  </div>
+  <div class="related-products">
+  <h2>Related Products</h2>
+  <div id="related-products-container" class="related-products-container"></div>
+</div>
+<footer></footer>
+ <script type="module" src="/js/firebase.js"></script>
+
+<!-- Auth and header next (they depend on Firebase) -->
+<script src="/js/auth.js" defer></script>
+<script src="/js/header.js" defer></script>
+<script src="/js/include.js" defer></script>
+
+<!-- Product JS files -->
+<script src="/js/productlist.js" defer></script>
+<script src="/js/product-detail.js" defer></script>
+  
+
+</body>
+</html>

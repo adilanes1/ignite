@@ -1,0 +1,261 @@
+
+.shop-container {
+  display: flex;
+  gap: 30px;
+  padding: 100px 50px;
+  background: #86817c;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.shop-filters {
+  width: 260px;
+  background: #d36905;
+  color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  transform: translateX(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 1;
+}
+
+
+.shop-filters h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 10px;
+}
+
+
+.filter-section {
+  margin-bottom: 25px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+}
+
+.filter-section:hover {
+  transform: scale(1.02);
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 12px 0;
+}
+
+.filter-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.filter-section:hover h4 {
+  color: #a15309; 
+}
+
+
+.filter-section input[type="checkbox"] {
+  display: none; 
+}
+
+.filter-section label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  user-select: none;
+  transition: 0.3s;
+  color: #fff;
+}
+
+
+.filter-section label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Checkmark */
+.filter-section input[type="checkbox"]:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%) scale(1.2);
+  font-size: 14px;
+  color: #d36905;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+
+.filter-section input[type="checkbox"]:checked + label::before {
+  background: #fff;
+  border-color: #fff;
+  transform: translateY(-50%) scale(1.2);
+}
+
+
+.filter-section label:hover::before {
+  background: rgba(255,255,255,0.2);
+}
+
+
+#price-range {
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+#price-value {
+  display: block;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+#price-range:hover {
+  filter: brightness(1.1);
+}
+
+
+.shop-filters-toggle {
+  display: none;
+  background: #d36905;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.shop-filters-toggle:hover {
+  background: #ff6f1f;
+  transform: scale(1.05);
+}
+
+
+.shop-products-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.shop-search input {
+  width: 95%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1.5px solid #010101;
+  font-size: 15px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.shop-search input:focus {
+  outline: none;
+  border-color: #d36905;
+  box-shadow: 0 0 10px rgba(211,105,5,0.3);
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge.most-purchased {
+  background: #ff4b2b;
+}
+
+.badge.new {
+  background: #00c851;
+}
+
+
+@media (max-width: 992px) {
+  .shop-container {
+    flex-direction: column;
+     padding: 100px 50px;
+  }
+
+  .shop-filters {
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .shop-products-section {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .shop-search input {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-filters {
+    display: none;
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+.product-card{
+    scale: 1;
+}
+  .shop-filters-toggle {
+    display: block;
+  }
+
+  .shop-filters.show {
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

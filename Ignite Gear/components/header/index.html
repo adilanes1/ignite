@@ -1,0 +1,110 @@
+<header>
+ <a href="/index.html" class="logo" id="logo">Ignite <span>Gear</span></a>
+
+
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+  <nav id="navbar">
+    <a href="../../index.html">Home</a>
+    <div class="dropdown">
+      <a href="../../shop/shop.html" class="shop-link">Shop ▾</a>
+      <div class="dropdown-content">
+        <div class="dropdown-category">
+          <h4>Sportswear</h4>
+          <a href="../../shop/shop.html" data-category="Sportswear">Men</a>
+          <a href="../../shop/shop.html" data-category="Sportswear">Women</a>
+          <a href="../../shop/shop.html" data-category="Sportswear">Kids</a>
+        </div>
+        <div class="dropdown-category">
+          <h4>Footwear</h4>
+          <a href="../../shop/shop.html" data-category="Footwear">Men</a>
+          <a href="../../shop/shop.html" data-category="Footwear">Women</a>
+          <a href="../../shop/shop.html" data-category="Footwear">Kids</a>
+        </div>
+        <div class="dropdown-category">
+          <h4>Accessories</h4>
+          <a href="../../shop/shop.html" data-category="Accessories">Shoes</a>
+          <a href="../../shop/shop.html" data-category="Accessories">Gloves</a>
+          <a href="../../shop/shop.html" data-category="Accessories">Water Bottles</a>
+        </div>
+      </div>
+    </div>
+    <a href="/contact/contact.html">Contact</a>
+    <a href="/admin/admin.html">Admin panel</a>
+  </nav>
+
+   <div class="header-actions">
+    <a href="/cart/cart.html" class="cart-icon1">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count">0</span>
+    </a>
+    <button class="login-btn">
+      <i class="fas fa-user"></i> Login
+    </button>
+  </div>
+</header>
+
+<div id="auth-modal" class="auth-modal">
+  <div class="auth-box">
+    <span class="close-btn" id="close-modal">&times;</span>
+
+    <form id="login-form" class="auth-form active">
+      <h2>Welcome Back</h2>
+      <p>Login to your Ignite Gear account</p>
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" required />
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" required />
+      </div>
+      <button type="submit" class="auth-btn">Login</button>
+      <p class="switch-text">
+        Don’t have an account? <a href="#" id="show-register">Register</a><br />
+        <a href="#" id="show-forgot">Forgot Password?</a>
+      </p>
+    </form>
+
+    <form id="register-form" class="auth-form">
+      <h2>Create Account</h2>
+      <p>Join Ignite Gear and start your fitness journey</p>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input id="register-name" type="text" placeholder="Full Name" required />
+      </div>
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input id="register-email" id="login-email" type="email" placeholder="Email" required />
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input id="register-password" type="password"  id="login-password" placeholder="Password" required />
+      </div>
+      <button type="submit" class="auth-btn">Register</button>
+      <p class="switch-text">
+        Already have an account? <a href="#" id="show-login">Login</a>
+      </p>
+    </form>
+
+    <form id="forgot-form" class="auth-form">
+      <h2>Forgot Password?</h2>
+      <p>Enter your email and we’ll send you reset instructions</p>
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="forgot-email" placeholder="Email" required />
+      </div>
+      <button type="submit" class="auth-btn">Send Reset Link</button>
+      <p class="switch-text">
+        Remembered your password? <a href="#" id="back-to-login">Login</a>
+      </p>
+    </form>
+  </div>
+
+<script type="module" src="../../js/firebase.js"></script>
+
+
+<script type="module" src="../../js/auth.js"></script>
+
+
+</div>

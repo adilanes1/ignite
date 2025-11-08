@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Ignite Gear</title>
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/checkout.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/a2e0b5b5e0.js" crossorigin="anonymous"></script>
+  
+
+
+</head>
+
+<body>
+  <header></header>
+
+  <main class="checkout-container">
+
+    <section class="checkout-form">
+      <h2>Checkout Details</h2>
+
+      <form id="checkout-form">
+        <h3>Shipping Information</h3>
+
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="name" placeholder="Full Name" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email Address" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-phone"></i>
+          <input type="tel" id="phone" placeholder="Phone Number" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-location-dot"></i>
+          <textarea id="address" placeholder="Street Address" required></textarea>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <i class="fa-solid fa-city"></i>
+            <input type="text" id="city" placeholder="City" required />
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <input type="text" id="postal" placeholder="Postal Code" required />
+          </div>
+        </div>
+
+        <h3>Payment Information</h3>
+
+        <div class="input-group">
+          <i class="fa-solid fa-id-card"></i>
+          <input type="text" id="card-name" placeholder="Cardholder Name" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-credit-card"></i>
+          <input type="text" id="card-number" maxlength="16" placeholder="Card Number" required />
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <i class="fa-solid fa-calendar"></i>
+            <input type="text" id="expiry" placeholder="MM/YY" required />
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="text" id="cvv" maxlength="3" placeholder="CVV" required />
+          </div>
+        </div>
+
+        <button type="submit" id="confirm-btn">Confirm Purchase</button>
+      </form>
+
+    </section>
+
+
+    <aside class="order-summary">
+      <h2>Order Summary</h2>
+      <div id="order-items"></div>
+
+      <div class="summary-totals">
+        <p>Subtotal: <span id="subtotal">$0.00</span></p>
+        <p>Tax (8%): <span id="tax">$0.00</span></p>
+        <p>Delivery: <span id="delivery">$10.00</span></p>
+        <hr />
+        <p class="total">Total: <span id="total">$0.00</span></p>
+      </div>
+    </aside>
+  </main>
+
+  <footer></footer>
+<!-- ✅ Firebase SDKs -->
+<script type="module" src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+
+<!-- ✅ Your Firebase config (sets window.auth + window.onAuthStateChanged) -->
+<script type="module" src="../js/firebase.js"></script>
+
+<!-- ✅ Auth helper (must be module if it uses exports/imports) -->
+<script type="module" src="../js/auth.js"></script>
+
+<!-- ✅ Page-specific logic -->
+<script src="../js/checkout.js" defer></script>
+
+<!-- ✅ UI scripts -->
+<script src="/js/header.js" defer></script>
+<script src="../js/include.js" defer></script>
+
+</body>
+
+</html>
